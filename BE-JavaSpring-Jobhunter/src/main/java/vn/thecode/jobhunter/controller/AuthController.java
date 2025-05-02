@@ -69,7 +69,7 @@ public class AuthController {
 
         // create refresh token
         String refresh_token = this.securityUtil.createRefreshToken(logindto.getUsername(), resLoginDTO);
-        this.userService.updateUserToken(refresh_token, logindto.getPassword());
+        this.userService.updateUserToken(refresh_token, logindto.getUsername());
 
         ResponseCookie responseCookie = ResponseCookie.from("refresh_token", refresh_token)
                 .httpOnly(true)
